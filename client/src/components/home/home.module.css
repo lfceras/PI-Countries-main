@@ -1,0 +1,23 @@
+
+.countriesContainer{
+  background-color: green;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 30px;
+  width: 1400px;
+}
+
+.inputs{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+

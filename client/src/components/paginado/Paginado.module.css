@@ -1,0 +1,23 @@
+/* .pag {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+
+}
+
+.barr3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+} */
+.pagination{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
