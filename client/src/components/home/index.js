@@ -69,8 +69,10 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.principal}>
       <SearchBar />
+
+      <div className={styles.contrlBtns}>
       <Link to="/activities">
         <button>Crear Actividades</button>
       </Link>
@@ -78,70 +80,66 @@ function Home() {
         <button>Inicio</button>
       </Link>
       <button onClick={(el) => handleClick(el)}>Recargar Paises</button>
-      <br />
-      <br />
-      <br />
-      <Pagination
-        totalCard={totalCard}
-        currentPages={currentPages}
-        pages={pages}
-      />
+      </div>      
 
       <div className={styles.inputs}>
+
         <div className={styles.alfabeticamente}>
-          <label>Orden Alfabético </label>
+          <label>Alfabético </label>
           <input
             type="submit"
-            value="All"
+            value="ALL"
             onClick={(el) => handleSortName(el)}
           />
           <input
             type="submit"
-            value="asc"
+            value="A-Z"
             onClick={(el) => handleSortName(el)}
           />
           <input
             type="submit"
-            value="desc"
+            value="Z-A"
             onClick={(el) => handleSortName(el)}
           />
         </div>
 
+
         <div className={styles.poblacion}>
-          <label>Ordenar por Poblacion: </label>
+          <label>Poblacion</label>
           <input
             type="submit"
-            value="All"
+            value="ALL"
             onClick={(el) => handleSortPopulation(el)}
           />
           <input
             type="submit"
-            value="menor"
+            value="Menor"
             onClick={(el) => handleSortPopulation(el)}
           />
           <input
             type="submit"
-            value="mayor"
+            value="Mayor"
             onClick={(el) => handleSortPopulation(el)}
           />
         </div>
 
         <div className={styles.continentes}>
-          <label>Buscar por Continentes</label>
+          <label>Continentes</label>
           <select onChange={(e) => handleFilterByContinents(e)}>
             <option value={"All"}>All </option>
-            <option value={"South America"}>Sudamérica</option>
-            <option value={"North America"}>Norteamérica</option>
             <option value={"Africa"}>África</option>
+            <option value={"Antarctica"}>Antárctica</option>
             <option value={"Asia"}>Asia</option>
             <option value={"Europe"}>Europa</option>
             <option value={"Oceania"}>Oceanía</option>
-            <option value={"Antarctica"}>Antárctica</option>
+            <option value={"North America"}>Norteamérica</option>
+            <option value={"South America"}>Sudamérica</option>
           </select>
         </div>
 
+
         <div className={styles.actividad}>
-          <label>Buscar por Actividad</label>
+          <label>Actividad</label>
           {activities.length === 0 ? (
             <p>No se han creado actividades</p>
           ) : (
@@ -156,7 +154,7 @@ function Home() {
           )}
         </div>
       </div>
-
+      
       <div className={styles.countriesContainer}>
         {currentCountries?.map((e) => {
           return (
@@ -170,8 +168,15 @@ function Home() {
             </div>
           );
         })}
+        </div>
+
+
+        <Pagination
+        totalCard={totalCard}
+        currentPages={currentPages}
+        pages={pages}
+      />
       </div>
-    </div>
   );
 }
 

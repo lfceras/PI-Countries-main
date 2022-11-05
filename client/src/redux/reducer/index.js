@@ -38,7 +38,7 @@ export default function rootReducer(state = initialState, actyon) {
       };
 
     case ORDER_BY_NAME:
-      if (actyon.payload === "asc") {
+      if (actyon.payload === "A-Z") {
         return {
           ...state,
           allCountries: [...state.allCountries].sort((a, b)=> {
@@ -52,7 +52,7 @@ export default function rootReducer(state = initialState, actyon) {
           }),
         };
       }
-      if (actyon.payload === "desc") {
+      if (actyon.payload === "Z-A") {
         return {
           ...state,
           allCountries: [...state.allCountries].sort((a, b)=> {
@@ -66,7 +66,7 @@ export default function rootReducer(state = initialState, actyon) {
           }),
         };
       }
-      if (actyon.payload === "All") {
+      if (actyon.payload === "ALL") {
         return {
           ...state,
           allCountries: state.countries,
@@ -79,7 +79,7 @@ export default function rootReducer(state = initialState, actyon) {
       }
 
     case ORDER_BY_POPULATION:
-      if (actyon.payload === "menor") {
+      if (actyon.payload === "Menor") {
         return {
           ...state,
           allCountries: [...state.allCountries].sort((a, b)=> {
@@ -93,7 +93,7 @@ export default function rootReducer(state = initialState, actyon) {
           }),
         };
       }
-      if (actyon.payload === "mayor") {
+      if (actyon.payload === "Mayor") {
         return {
           ...state,
           allCountries: [...state.allCountries].sort((a, b)=> {
@@ -107,7 +107,7 @@ export default function rootReducer(state = initialState, actyon) {
           }),
         };
       }
-      if (actyon.payload === "All") {
+      if (actyon.payload === "ALL") {
         return {
           ...state,
           allCountries: state.countries,

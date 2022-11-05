@@ -1,23 +1,110 @@
-
-.countriesContainer{
-  background-color: green;
+.principal{
   margin: 0 auto;
+  background-image: url("../../assets/1989883.jpg");
+  width: 100%;
+  height: 887px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+
+.countriesContainer {
+  background: transparent;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  gap: 30px;
-  width: 1400px;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 10px 10px 10px;
+  width: 80%;
+  margin-left: 10%;
+  border: 4px  solid red;
+  height: 550px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 5px  red)
 }
 
-.inputs{
-  margin: 0 auto;
+
+.inputs {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin-bottom: 10px;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
+
+.inputs label{
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 5px;
+  color:  white;
+}
+
+.alfabeticamente input{
+  width: 43px;
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 7px;
+}
+
+.poblacion input{
+  width: 55px;
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 7px;
+}
+
+.alfabeticamente input:hover{
+  background: transparent;
+  border: none;
+  box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+  color: white;
+}
+
+.poblacion input:hover{
+  background: transparent;
+  border: none;
+  box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+  color: white;
+}
+
+.continentes select{
+  width: 170px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.actividad select{
+  width: 170px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.contrlBtns {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.contrlBtns button {
+  width: 190px;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+}
+
+.contrlBtns button:hover {
+  background: transparent;
+  border: none;
+  box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px  red;
+  color: white;
+}
+
 
 

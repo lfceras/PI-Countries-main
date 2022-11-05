@@ -1,0 +1,27 @@
+.principal{
+  margin: 0 auto;
+  width: 100%;
+  min-height: 887px;
+  background-image: url("../../assets/countries.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover
+}
+
+.buttons{
+  background-color: transparent;
+  font-size: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-top: 25%;
+  font-weight: 600;
+}
+
+
+.buttons:hover{
+  color: white;
+  background-color: rgb(10, 20, 30) ;
+  filter: drop-shadow(10px 10px 5px #faea10);
+}

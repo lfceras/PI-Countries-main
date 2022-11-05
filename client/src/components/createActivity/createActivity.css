@@ -1,0 +1,185 @@
+.principalContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/553945.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height:887px;
+}
+
+.home{
+  padding: 7px;
+  font-size: 18px;
+  width: 150px;
+  margin-top: 10px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.home:hover{
+  background: transparent;
+  box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+  color: white;
+  border: none;
+}
+
+.submit{
+  padding: 8px;
+  font-size: 18px;
+  width: 200px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.submit:hover{
+  background: transparent;
+  box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
+  color: black;
+  border: none;
+}
+
+/* #formulario{
+  background-color: red;
+  margin-top: 30px;
+} */
+
+.form{
+  background-color: green;
+  width: 750px;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background: lightgray;
+  opacity: 0.9;
+  filter: drop-shadow(2px 2px 5px red);
+}
+
+.form p{
+  font-size: 23px;
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+
+.form select{
+  width: 290px;
+  padding: 8px;
+  font-size: 17px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 5px red);
+}
+
+.nome{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.nome h3{
+  font-size: 25px;
+  margin-right: 10px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.nome input{
+  width: 250px;
+  padding: 8px;
+  font-size: 20px;
+  outline: none;
+  border-radius: 10px;
+  margin: 0;
+  filter: drop-shadow(2px 2px 5px red);
+  
+}
+
+.numericos{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.numericos h3{
+  font-size: 25px;
+  margin-right: 10px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.numericos input{
+  width: 50px;
+  padding: 5px;
+  font-size: 20px;
+  outline: none;
+  border-radius: 10px;
+  margin-top: 8px;
+  filter: drop-shadow(2px 2px 5px red);
+  cursor: pointer;
+}
+
+.seasons{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.seasons h3{
+  font-size: 25px;
+  margin-right: 10px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.seasons label {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.seasons input{
+  width: 30px;
+  filter: drop-shadow(2px 2px 5px red);
+  cursor: pointer;
+}
+
+.containerCountries{
+  background: transparent;
+  color: white;
+  width: 400px;
+  min-height: 150px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid black;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.containerCountries p{
+  border-radius: 10px;
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+.containerCountries button {
+  border-radius: 10px;
+
+}

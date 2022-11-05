@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {  addActivities} from "../../redux/actions";
+import { addActivities } from "../../redux/actions";
+import "./createActivity.css";
 
 function Validate(input) {
   let errors = {};
@@ -29,8 +30,8 @@ function Validate(input) {
   ) {
     errors.season = "Te falta seleccionar una temporada2";
   }
-  if(input.countries.length === 0){
-    errors.countries = "Debes seleccionar al menos un pais"
+  if (input.countries.length === 0) {
+    errors.countries = "Debes seleccionar al menos un pais";
   }
   return errors;
 }
@@ -51,11 +52,11 @@ const CreateActivity = () => {
 
   function handleChange(el) {
     el.preventDefault();
-    if(el.target.checked){
+    if (el.target.checked) {
       setInput({
         ...input,
-        season: el.target.value
-      })
+        season: el.target.value,
+      });
     }
     setInput({
       ...input,
@@ -65,7 +66,7 @@ const CreateActivity = () => {
       Validate({
         ...input,
         [el.target.name]: el.target.value,
-      }),
+      })
     );
   }
 
@@ -87,9 +88,9 @@ const CreateActivity = () => {
       Validate({
         ...input,
         [el.target.name]: el.target.value,
-      }),
+      })
     );
-    if(Object.values(errors).length === 0){
+    if (Object.values(errors).length === 0) {
       dispatch(addActivities(input));
       alert("Actividad Creada");
       setInput({
@@ -99,11 +100,11 @@ const CreateActivity = () => {
         season: [],
       });
       history.push("/home");
-    }else{
-      alert("Te falta completar datos")
+    } else {
+      alert("Te falta completar datos");
     }
-    }
-  
+  }
+
   function handleDelete(el) {
     setInput({
       ...input, // se trae el estado anterior
@@ -113,28 +114,30 @@ const CreateActivity = () => {
   useEffect(() => {
     setErrors(Validate(input));
     // dispatch(getActivities());
-  }, [ input]);
+  }, [input]);
 
   return (
-    <div>
-      <Link to="/home">
-        <button>Regresar: </button>
-      </Link>
-      <div>
-        <form onSubmit={(el) => handleSubmit(el)}>
-          <div>
-            <label htmlFor="">Nombre</label>
+    <div className="principalContainer">
+      <div id="formulario">
+        <Link to="/home">
+          <input type="button" value="Regresar" className="home" />
+        </Link>
+
+        <form onSubmit={(el) => handleSubmit(el)} className="form">
+          <div className="nome">
+            <h3>Nombre</h3>
             <input
               type="text"
               value={input.name}
               name="name"
               onChange={(el) => handleChange(el)}
+              autoComplete="off"
             />
-            <br />
-            {errors.name ? <label>{errors.name}</label> : null}
+            {errors.name ? <p>{errors.name}</p> : null}
           </div>
-          <div>
-            <label htmlFor="">Dificultad</label>
+
+          <div className="numericos">
+            <h3>Dificultad</h3>
             <input
               type="number"
               value={input.dificulty}
@@ -143,11 +146,11 @@ const CreateActivity = () => {
               max="5"
               onChange={(el) => handleChange(el)}
             />
-            <br />
-            {errors.dificulty ? <label>{errors.dificulty}</label> : null}
-          </div>
+            {errors.dificulty ? <p>{errors.dificulty}</p> : null}
+          
+
           <div>
-            <label htmlFor="">Duración</label>
+            <h3>Duración</h3>
             <input
               type="number"
               value={input.duration}
@@ -156,11 +159,13 @@ const CreateActivity = () => {
               max="24"
               onChange={(el) => handleChange(el)}
             />
-            <br />
-            {errors.duration ? <label>{errors.duration}</label> : null}
+            {errors.duration ? <p>{errors.duration}</p> : null}
           </div>
-          <div>
-            <label htmlFor="">Temporada</label>
+
+          </div>
+
+          <div className="seasons">
+            <h3>Temporada</h3>
             <label>
               <input
                 type="checkbox"
@@ -170,6 +175,7 @@ const CreateActivity = () => {
               />
               Invierno
             </label>
+
             <label>
               <input
                 type="checkbox"
@@ -197,9 +203,11 @@ const CreateActivity = () => {
               />
               Otoño
             </label>
-            <br />
-            {errors.season ? <label>{errors.season}</label> : null}
+            {errors.season ? <p>{errors.season}</p> : null}
           </div>
+
+          
+        
           <select onChange={(el) => handleSelect(el)}>
             {country?.map((co) => (
               <option value={co.id} key={co.id}>
@@ -207,9 +215,8 @@ const CreateActivity = () => {
               </option>
             ))}
           </select>
-          <button type="submit">Crear Actividad</button>
 
-          <div>
+          <div className="containerCountries">
             {input.countries.map((el) => (
               <div key={el}>
                 <p>{el}</p>
@@ -218,6 +225,9 @@ const CreateActivity = () => {
               </div>
             ))}
           </div>
+          
+          <button type="submit" className="submit">Crear Actividad</button>
+
         </form>
       </div>
     </div>

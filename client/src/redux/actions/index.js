@@ -11,10 +11,17 @@ export function getAllCountries() {
 
 export function  getCountriesByName(name){
   return async function(dispatch){
-    const det = await axios.get(`http://localhost:3001/countries?name=${name}`)
-   
-    dispatch({type:GET_COUNTRY_BYNAME, payload:det.data})
-    console.log(det.data)
+    try {
+      if(name){
+        const det = await axios.get(`http://localhost:3001/countries?name=${name}`)
+        dispatch({type:GET_COUNTRY_BYNAME, 
+        payload:det.data})
+      }else{
+        alert("Ingrese el nombre del pais")
+      }
+    } catch (error) {
+      alert("El pais ingresado no existe", error)
+    }
   }
 }
 

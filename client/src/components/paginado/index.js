@@ -14,11 +14,12 @@ function Pagination({ pages, totalCard }) {
   }
 
   return (
-    <nav className={styles.pag}>
+    <div>
+    <nav>
       <ul className={styles.pagination}>
         {page &&
           page.map((num) => (
-            <div className={styles.pagination} key={num}>
+            <div key={num}>
               <button onClick={() => dispatch(setCurrentPage(num))}>
                 {num}
               </button>
@@ -26,6 +27,7 @@ function Pagination({ pages, totalCard }) {
           ))}
       </ul>
     </nav>
+    </div>
   );
 }
 
