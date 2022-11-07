@@ -6,11 +6,11 @@ import { getCountriesDetails, Clean } from "../../redux/actions";
 import styles from './countrydetail.module.css'
 import Loading from "../loading/Loading";
 
-
 const CountryDetail = () => {
   const dispatch = useDispatch();
   const details = useSelector((state) => state.details);
   const { id } = useParams();
+  // console.log(details);
 
   useEffect(() => {
     dispatch(getCountriesDetails(id));
@@ -51,9 +51,12 @@ const CountryDetail = () => {
 
         <h2>Actividades </h2>
       {
-        details.Activities && details.Activities.map(el => {
+        details.Activities && details.Activities.map((el,index )=> {
           return(
-            <div key={el.id} className={styles.solos}>
+           
+            <div
+              key={index}
+            className={styles.solos}>
               <label>Nombre de actividad: </label>
               <h3>{el.name}</h3>
               <label>Dificultad de actividad: </label>
@@ -72,7 +75,7 @@ const CountryDetail = () => {
     </div>
   ) : (
     <div>
-      <Loading/>
+     <Loading/>
     </div>
   )
 };

@@ -16,7 +16,8 @@
   align-items: stretch;
   justify-content: center;
   gap: 70px;
-  width: 900px;
+  min-width: 900px;
+  max-width: 1000px;
   margin-left: 24%;
   height: auto;
   padding-right: 30px;

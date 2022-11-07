@@ -7,7 +7,10 @@ import "./createActivity.css";
 
 function Validate(input) {
   let errors = {};
-  if (input.name.length < 5 || input.name.length > 10) {
+  if(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\d/?~]/.test(input.name)){
+    errors.name="El nombre no debe tener caracteres especiales"
+  }
+  else if (input.name.length < 5 || input.name.length > 10) {
     errors.name = "Te falta el nombre";
   }
 
@@ -51,7 +54,6 @@ const CreateActivity = () => {
   const [errors, setErrors] = useState({});
 
   function handleChange(el) {
-    el.preventDefault();
     if (el.target.checked) {
       setInput({
         ...input,
@@ -69,6 +71,7 @@ const CreateActivity = () => {
       })
     );
   }
+
 
   function handleSelect(el) {
     el.preventDefault();
@@ -168,7 +171,7 @@ const CreateActivity = () => {
             <h3>Temporada</h3>
             <label>
               <input
-                type="checkbox"
+                type="radio"
                 value="Invierno"
                 name="season"
                 onChange={(el) => handleChange(el)}
@@ -178,7 +181,7 @@ const CreateActivity = () => {
 
             <label>
               <input
-                type="checkbox"
+                type="radio"
                 value="Verano"
                 name="season"
                 onChange={(el) => handleChange(el)}
@@ -187,7 +190,7 @@ const CreateActivity = () => {
             </label>
             <label>
               <input
-                type="checkbox"
+                type="radio"
                 value="Primavera"
                 name="season"
                 onChange={(el) => handleChange(el)}
@@ -196,7 +199,7 @@ const CreateActivity = () => {
             </label>
             <label>
               <input
-                type="checkbox"
+                type="radio"
                 value="Otoño"
                 name="season"
                 onChange={(el) => handleChange(el)}

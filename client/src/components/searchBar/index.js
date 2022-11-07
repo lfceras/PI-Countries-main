@@ -10,15 +10,22 @@ export default function SearchBar() {
 
   function handleInputCountries(el) {
     el.preventDefault();
+    if(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\d/?~]/.test(el.target.value)){
+      alert("Solo se permimite ingresar letras")
+    }
     setName(el.target.value);
   }
 
   function handleSubmit(el) {
     el.preventDefault();
     if (!name) return alert("Debes ingresar un pais");
+    else if(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\d/?~]/.test(name)){
+      alert("El nombre del pais ingresado no existe")
+    }
     else {
       dispatch(getCountriesByName(name));
       setName("");
+      // console.log(getCountriesByName(name));
     }
   }
 

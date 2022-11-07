@@ -23,13 +23,12 @@ function Home() {
   // eslint-disable-next-line no-unused-vars
   const [orden, setOrden] = useState("");
 
-  const currentPages = useSelector((state)=> state.currentPage)
-  const pages= 10;
-  const idLastCard = currentPages===1 ? 8 :currentPages * pages -2;
-  const idFirstCard = currentPages===1 ? 0 :idLastCard - pages +1;
-  const totalCard = allCountries.length 
-  const currentCountries = allCountries.slice(idFirstCard, idLastCard+1)
-
+  const currentPages = useSelector((state) => state.currentPage);
+  const pages = 10;
+  const idLastCard = currentPages === 1 ? 8 : currentPages * pages - 2;
+  const idFirstCard = currentPages === 1 ? 0 : idLastCard - pages + 1;
+  const totalCard = allCountries.length;
+  const currentCountries = allCountries.slice(idFirstCard, idLastCard + 1);
 
   useEffect(() => {
     if (allCountries.length === countries.length) {
@@ -73,17 +72,16 @@ function Home() {
       <SearchBar />
 
       <div className={styles.contrlBtns}>
-      <Link to="/activities">
-        <button>Crear Actividades</button>
-      </Link>
-      <Link to={"/"}>
-        <button>Inicio</button>
-      </Link>
-      <button onClick={(el) => handleClick(el)}>Recargar Paises</button>
-      </div>      
+        <Link to="/activities">
+          <button>Crear Actividades</button>
+        </Link>
+        <Link to={"/"}>
+          <button>Inicio</button>
+        </Link>
+        <button onClick={(el) => handleClick(el)}>Recargar Paises</button>
+      </div>
 
       <div className={styles.inputs}>
-
         <div className={styles.alfabeticamente}>
           <label>Alfabético </label>
           <input
@@ -102,7 +100,6 @@ function Home() {
             onClick={(el) => handleSortName(el)}
           />
         </div>
-
 
         <div className={styles.poblacion}>
           <label>Poblacion</label>
@@ -137,7 +134,6 @@ function Home() {
           </select>
         </div>
 
-
         <div className={styles.actividad}>
           <label>Actividad</label>
           {activities.length === 0 ? (
@@ -146,15 +142,15 @@ function Home() {
             <select onChange={(e) => handleSelect(e)}>
               <option value="sin filtro">Sin filtro</option>
               {activities?.map((e) => (
-                  <option value={e.name} key={e.id}>
-                    {e.name}
-                  </option>
+                <option value={e.name} key={e.id}>
+                  {e.name}
+                </option>
               ))}
             </select>
           )}
         </div>
       </div>
-      
+
       <div className={styles.countriesContainer}>
         {currentCountries?.map((e) => {
           return (
@@ -164,19 +160,19 @@ function Home() {
                 flag={e.flag}
                 name={e.name}
                 continents={e.continents}
+                population={e.population}
               />
             </div>
           );
         })}
-        </div>
+      </div>
 
-
-        <Pagination
+      <Pagination
         totalCard={totalCard}
         currentPages={currentPages}
         pages={pages}
       />
-      </div>
+    </div>
   );
 }
 
