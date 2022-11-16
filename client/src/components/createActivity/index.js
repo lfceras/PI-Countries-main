@@ -7,10 +7,9 @@ import "./createActivity.css";
 
 function Validate(input) {
   let errors = {};
-  if(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\d/?~]/.test(input.name)){
-    errors.name="El nombre no debe tener caracteres especiales"
-  }
-  else if (input.name.length < 5 || input.name.length > 10) {
+  if (/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\d/?~]/.test(input.name)) {
+    errors.name = "El nombre no debe tener caracteres especiales";
+  } else if (input.name.length < 5 || input.name.length > 10) {
     errors.name = "Te falta el nombre";
   }
 
@@ -71,7 +70,6 @@ const CreateActivity = () => {
       })
     );
   }
-
 
   function handleSelect(el) {
     el.preventDefault();
@@ -150,21 +148,19 @@ const CreateActivity = () => {
               onChange={(el) => handleChange(el)}
             />
             {errors.dificulty ? <p>{errors.dificulty}</p> : null}
-          
 
-          <div>
-            <h3>Duración</h3>
-            <input
-              type="number"
-              value={input.duration}
-              name="duration"
-              min="1"
-              max="24"
-              onChange={(el) => handleChange(el)}
-            />
-            {errors.duration ? <p>{errors.duration}</p> : null}
-          </div>
-
+            <div>
+              <h3>Duración</h3>
+              <input
+                type="number"
+                value={input.duration}
+                name="duration"
+                min="1"
+                max="24"
+                onChange={(el) => handleChange(el)}
+              />
+              {errors.duration ? <p>{errors.duration}</p> : null}
+            </div>
           </div>
 
           <div className="seasons">
@@ -209,8 +205,6 @@ const CreateActivity = () => {
             {errors.season ? <p>{errors.season}</p> : null}
           </div>
 
-          
-        
           <select onChange={(el) => handleSelect(el)}>
             {country?.map((co) => (
               <option value={co.id} key={co.id}>
@@ -228,9 +222,10 @@ const CreateActivity = () => {
               </div>
             ))}
           </div>
-          
-          <button type="submit" className="submit">Crear Actividad</button>
 
+          <button type="submit" className="submit">
+            Crear Actividad
+          </button>
         </form>
       </div>
     </div>

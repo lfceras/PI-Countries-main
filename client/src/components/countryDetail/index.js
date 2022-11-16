@@ -17,6 +17,7 @@ const CountryDetail = () => {
     return dispatch(Clean());
   }, [dispatch, id]);
 
+
   // console.log(details);
 
   return details && details.id ? (
@@ -42,7 +43,7 @@ const CountryDetail = () => {
           </h2>
           <label>Poblation: </label>
           <h2>
-            {details.population?.toLocaleString("es-AR") || ""}
+            {details.population?.toLocaleString("es-AR") || ""} Hab
           </h2>
         </div>
 
@@ -62,7 +63,7 @@ const CountryDetail = () => {
               <label>Dificultad de actividad: </label>
               <h3>{el.dificulty}</h3>
               <label>Duracion de actividad: </label>
-              <h3>{el.duration}</h3>
+              <h3>{el.duration} Hs</h3>
               <label>Temporada de actividad: </label>
               <h3>{el.season}</h3>
             </div>

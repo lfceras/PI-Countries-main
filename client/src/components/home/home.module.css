@@ -3,10 +3,19 @@
   background-image: url("../../assets/1989883.jpg");
   width: 100%;
   min-height: 887px;
-  max-height: 1300px;
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
+}
+
+.navBar{
+  background-image: linear-gradient(to bottom,red,white);
+  padding: 15px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
 
 
@@ -32,6 +41,7 @@
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 .inputs label{
@@ -87,8 +97,9 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 30px;
+  flex-direction: row-reverse;
+  gap: 100px;
+  margin-bottom: 15px;
 }
 
 .contrlBtns button {
@@ -98,13 +109,16 @@
   font-weight: 600;
   cursor: pointer;
   margin: 0;
+  padding: 5px;
+  align-items: center;
+  margin-top: 5px;
 }
 
 .contrlBtns button:hover {
   background: transparent;
   border: none;
   box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px  red;
-  color: white;
+  color: black;
 }
 
 

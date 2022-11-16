@@ -157,7 +157,7 @@ export default function rootReducer(state = initialState, actyon) {
         details: actyon.payload,
       };
 
-    case ADD_ACTIVITIES:
+    case ADD_ACTIVITIES:      
       return {
         ...state,
         activities: [...state.activities, actyon.payload],
@@ -167,6 +167,7 @@ export default function rootReducer(state = initialState, actyon) {
       return {
         ...state,
         details: {},
+        currentPage: 1
       };
 
       case SET_PAGES:

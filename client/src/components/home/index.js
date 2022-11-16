@@ -8,6 +8,7 @@ import {
   orderByPopulation,
   filterCreated,
   filterByRegion,
+  Clean,
 } from "../../redux/actions";
 import Pagination from "../paginado";
 import React from "react";
@@ -15,11 +16,11 @@ import CountryCard from "../countryCard";
 import styles from "./home.module.css";
 import SearchBar from "../searchBar";
 
-function Home() {
+const Home = () => {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
   const allCountries = useSelector((state) => state.allCountries);
-  const countries = useSelector((state) => state.countries);
+  const countries =  useSelector((state) => state.countries);
   // eslint-disable-next-line no-unused-vars
   const [orden, setOrden] = useState("");
 
@@ -31,46 +32,42 @@ function Home() {
   const currentCountries = allCountries.slice(idFirstCard, idLastCard + 1);
 
   useEffect(() => {
-    if (allCountries.length === countries.length) {
-      // dejar el anzuelo
+    if(allCountries.length === countries.length){
       dispatch(getAllCountries());
       dispatch(getActivities());
     }
+    return dispatch(Clean())
   }, [allCountries.length, countries.length, dispatch]);
 
-  function handleClick(e) {
-    e.preventDefault();
+  const handleClick = (e) => {
     dispatch(getAllCountries());
-  }
-  function handleSelect(e) {
-    e.preventDefault();
+  };
+  const handleSelect = (e) => {
     e.target.value === "sin filtro"
       ? dispatch(getAllCountries())
       : dispatch(filterCreated(e.target.value));
     setOrden(`orden ${e.target.value}`);
-  }
+  };
 
-  function handleSortName(e) {
-    e.preventDefault();
+  const handleSortName = (e) => {
     dispatch(orderByName(e.target.value));
     setOrden(`orden ${e.target.value}`);
-  }
+  };
 
-  function handleSortPopulation(e) {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSortPopulation = (e) => {
     dispatch(orderByPopulation(e.target.value));
     setOrden(`orden${e.target.value}`);
-  }
-  function handleFilterByContinents(e) {
-    e.preventDefault();
+  };
+  const handleFilterByContinents = (e) => {
     dispatch(filterByRegion(e.target.value));
-  }
+    setOrden(`orden${e.target.value}`);
+  };
 
   return (
     <div className={styles.principal}>
-      <SearchBar />
+      <nav className={styles.navBar}>
 
+      <SearchBar />
       <div className={styles.contrlBtns}>
         <Link to="/activities">
           <button>Crear Actividades</button>
@@ -80,6 +77,7 @@ function Home() {
         </Link>
         <button onClick={(el) => handleClick(el)}>Recargar Paises</button>
       </div>
+      </nav>
 
       <div className={styles.inputs}>
         <div className={styles.alfabeticamente}>
@@ -150,6 +148,8 @@ function Home() {
           )}
         </div>
       </div>
+      
+  
 
       <div className={styles.countriesContainer}>
         {currentCountries?.map((e) => {
@@ -174,6 +174,6 @@ function Home() {
       />
     </div>
   );
-}
+};
 
 export default Home;

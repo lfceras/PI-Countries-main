@@ -10,6 +10,15 @@
   min-height:887px;
 }
 
+p.danger {
+  color: red;
+  font-size: 10px;
+}
+
+input.danger {
+  border: 2px solid red;
+}
+
 .home{
   padding: 7px;
   font-size: 18px;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './landingpage.module.css'
 
 
-function LandingPage() {
+const LandingPage = () => {
   return (
       <div className={styles.principal}>
         <Link to="/home">
