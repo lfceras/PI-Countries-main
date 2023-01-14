@@ -26,29 +26,32 @@ router.get("/", async (req, res) => {
     }
     return res.status(200).json(totalCountries);
   } catch (error) {
-    console.log("MUESTRAME EL ERRORRR", error);
+    return res.status(400).send({ error: error.message });
   }
 });
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  await loadCountry();
-  const totalCountries = await Country.findOne({
-    where: {
-      id: id.toUpperCase(),
-    },
-    include: {
-      model: Activity,
-      attributes: ["name", "dificulty", "duration", "season"],
-      through: { attributes: [] },
-    },
-  });
-  if (id) {
-    totalCountries
-      ? res.status(200).json(totalCountries)
-      : res.status(404).send("Ningun pais coincide con este ID");
+  try {
+    await loadCountry();
+    const totalCountries = await Country.findOne({
+      where: {
+        id: id.toUpperCase(),
+      },
+      include: {
+        model: Activity,
+        attributes: ["name", "dificulty", "duration", "season"],
+        through: { attributes: [] },
+      },
+    });
+    if (id) {
+      totalCountries
+        ? res.status(200).json(totalCountries)
+        : res.status(404).send("Ningun pais coincide con este ID");
+    }
+  } catch (error) {
+    return res.status(400).send({ error: error.message });
   }
 });
 
 module.exports = router;
- 
